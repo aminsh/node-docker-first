@@ -1,9 +1,12 @@
-FROM node:7
+FROM node:8
 
-WORKDIR /app
-ADD . /app
+WORKDIR /usr/src/app
+
+COPY package*.json ./
 
 RUN npm install
+
+COPY . .
 
 EXPOSE 8080
 CMD [ "npm", "start" ]
